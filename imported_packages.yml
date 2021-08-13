@@ -1,0 +1,30 @@
+# conda env export --no-builds | grep -v "^prefix: " > imported_packages.yml
+
+#conda create --name yolotutorial python=3.7
+#conda env update --name yolotutorial --file=imported_packages.yml
+
+name: yolotutorial
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - absl-py
+  - numpy=1.18.1
+  - pathos
+  - scipy
+  - Pillow
+  - cython
+  - matplotlib
+  - seaborn
+  - scikit-image
+  - opencv=4.2.0
+  - h5py
+  - flask
+  - pandas
+  - sqlalchemy
+  - pymysql
+  - scikit-learn
+  - tqdm
+  - python-wget
+  - openpyxl
+  - pip
