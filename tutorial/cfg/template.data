@@ -1,6 +1,6 @@
-classes=69
-train  = /home/ubuntu/data/train.txt
-valid  = /home/ubuntu/data/test.txt
-backup = /home/ubuntu/models
-names  = /home/ubuntu/data/classes.names
+classes=2
+train  = /home/ubuntu/data_wound/train.txt
+valid  = /home/ubuntu/data_wound/test.txt
+backup = /home/ubuntu/models_wound
+names  = /home/ubuntu/data_wound/classes.names
 
