@@ -1,0 +1,4 @@
+yolov3:
+  cfg: 'template-yolov3.cfg'
+  data: 'template.data'
+  weights: 'template-yolov3_4000.weights'

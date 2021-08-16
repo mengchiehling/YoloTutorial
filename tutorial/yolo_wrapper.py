@@ -1,13 +1,8 @@
 import os
-from glob import glob
 from typing import Tuple, List
-from datetime import datetime
-
 
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
 from PIL import Image
 
 from tutorial.io.path_definition import get_project_dir
@@ -81,23 +76,23 @@ class YoloInferenceWrapper():
 
         '''
 
-        cfg_folder = f"{get_project_dir()}/tutorial/cfg"
+        cfg_folder = os.path.join(get_project_dir(), 'tutorial', 'cfg')
         assert os.path.isdir(cfg_folder), f"directory {cfg_folder} does not exist"
 
-        _data = f"{cfg_folder}/template.data"
+        _data = os.path.join(cfg_folder, 'template.data')
         assert os.path.isfile(_data), f".data file {_data} does not exist"
 
         extension = os.path.splitext(cfg_code)[1]
         assert extension == '.cfg', "The file extension is not correct for cfg_code"
 
-        _cfg = f"{cfg_folder}/{cfg_code}"
+        _cfg = os.path.join(cfg_folder, cfg_code)
         assert os.path.isfile(_cfg), f".cfg file {_cfg} does not exist"
 
         extension = os.path.splitext(model_code)[1]
         assert extension == '.weights', "The file extension is not correct for model_code"
 
-        model_folder = f"{get_project_dir()}/trained_models/yolov3"
-        _weights = f"{model_folder}/{model_code}"
+        model_folder = os.path.join(get_project_dir(), 'trained_models', 'yolov3')
+        _weights = os.path.join(model_folder, model_code)
         assert os.path.isfile(_weights), f".weights file {_weights} does not exist"
 
         return _data, _cfg, _weights

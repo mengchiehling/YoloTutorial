@@ -1,4 +1,5 @@
 import argparse
+import os
 
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
@@ -29,7 +30,7 @@ def plot_image(f: str, box: np.ndarray, label: str, label_proba: float):
     fig.patch.set_visible(False)
     ax.axis('off')
 
-    plt.savefig(f"{get_project_dir()}/data/evaluation/yolov3-demo.jpg", dpi=300)
+    plt.savefig(os.path.join(get_project_dir(), 'data', 'evaluation', 'yolov3-demo.jpg'), dpi=300)
 
 
 if __name__ == "__main__":
@@ -42,7 +43,7 @@ if __name__ == "__main__":
 
     detector = YoloInferenceWrapper(cfg_code=args.CFG_CODE, model_code=args.MODEL_CODE)
 
-    full_file_path = f"{get_project_dir()}/data/images/{args.FILENAME}"
+    full_file_path = os.path.join(get_project_dir(), 'data', 'images', args.FILENAME)
 
     label, label_proba, box = detector.predict(img_file=full_file_path)
     plot_image(full_file_path, box, label, label_proba)
